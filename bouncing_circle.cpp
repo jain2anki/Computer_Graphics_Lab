@@ -29,7 +29,6 @@ void draw_circle()
       p = p + 4*(x-y) + 10;
       y--;
     }
-    glRotatef (45, 0, 1, 1);
     glVertex2d(x + X, y + Y);
     glVertex2d(y + X, x + Y);
     glVertex2d(x + X, -y + Y);
@@ -38,29 +37,39 @@ void draw_circle()
     glVertex2d(-y + X, -x + Y);
     glVertex2d(-x + X, y + Y);
     glVertex2d(-y + X, x + Y);
-        glRotatef (45, 0, 1, 1);
   }
   
 
 }
 
 void circle() {
-	printf("Enter centre (x,y) and radius of the circle\n");
-	scanf("%d%d%d",&X,&Y,&r);
-  int x=X, y=Y, flag=1;
+  printf("Enter centre (x,y) and radius of the circle\n");
+  scanf("%d%d%d",&X,&Y,&r);
+  int x=X, y=Y, flag=1, mode=1;
   while (1) {
-  if (flag)
-    Y++;
+  if (flag) {
+    X++;
+  }
+  else {
+    X--;
+  }
+  if(mode)
+      Y++;
   else
     Y--;
-  if(Y+r==maxHT)
+  if(Y+r==maxHT) {
+      mode = 0;
+    }
+  if(Y==r)
+    mode=1;
+  if(X+r==maxWD)
     flag=0;
-  if(Y==y)
+  if(X==r)
     flag=1;
   glClear(GL_COLOR_BUFFER_BIT);
   draw_circle();
 
-	glEnd();
+  glEnd();
   glFlush();
   usleep(4000);
 }
