@@ -12,7 +12,7 @@ float round_value(float v)
 void draw_circle()
 {
 
-  glBegin(GL_POINTS);
+  glBegin(GL_LINES);
   int x=0, y=r;
   int p = 3-2*r;
   while(x<y) {
@@ -23,7 +23,7 @@ void draw_circle()
       p = p + 4*(x-y) + 10;
       y--;
     }
-    
+
     glVertex2d(x + X, y + Y);
     glVertex2d(y + X, x + Y);
     glVertex2d(x + X, -y + Y);
@@ -51,8 +51,8 @@ void circle() {
 
 void Init()
 {
-  glClearColor(1.0,1.0,1.0,0);
-  glColor3f(0.0,0.0,0.0);
+  // glClearColor(1.0,1.0,1.0,0);
+  // glColor3f(0.0,0.0,0.0);
   gluOrtho2D(0 , 640 , 0 , 480);
 }
 int main(int argc, char **argv)

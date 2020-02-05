@@ -43,8 +43,8 @@ void draw_circle()
 }
 
 void circle() {
-  printf("Enter centre (x,y) and radius of the circle\n");
-  scanf("%d%d%d",&X,&Y,&r);
+	printf("Enter centre (x,y) and radius of the circle\n");
+	scanf("%d%d%d",&X,&Y,&r);
   int x=X, y=Y, flag=1, mode=1;
   while (1) {
   if (flag) {
@@ -69,7 +69,7 @@ void circle() {
   glClear(GL_COLOR_BUFFER_BIT);
   draw_circle();
 
-  glEnd();
+	glEnd();
   glFlush();
   usleep(4000);
 }
